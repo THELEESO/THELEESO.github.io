@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <meta name="color-scheme" content="light dark" />
+    
+    <title>Building a Blog With Hexo - LEESO&#39;s World</title>
+     <link rel="shortcut icon" href="/img/favicon.png">   
+<link rel="stylesheet" href="/css/var.css">
+ 
+<link rel="stylesheet" href="/css/main.css">
+ 
+<link rel="stylesheet" href="/css/typography.css">
+ 
+<link rel="stylesheet" href="/css/code-highlighting.css">
+ 
+<link rel="stylesheet" href="/css/components.css">
+ 
+<link rel="stylesheet" href="/css/nav.css">
+ 
+<link rel="stylesheet" href="/css/paginator.css">
+
+    
+<link rel="stylesheet" href="/css/footer.css">
+ 
+<link rel="stylesheet" href="/css/post-list.css">
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+   
+<link rel="stylesheet" href="/css/toc.css">
+     
+<link rel="stylesheet" href="/css/post.css">
+    
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/highlight/styles/panda-syntax-dark.min.css"
+    />
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+    <body
+        data-color-scheme="light"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">LEESO&#39;s World</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">Tags</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">Categories</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/THELEESO" target="_blank">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/Technique/">Technique</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>October</span>
+            <span>8,</span>
+            <span>2022</span>
+        </div>
+        
+
+        <h2 class="title">Building a Blog With Hexo</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h3 id="聊聊目的"><a href="#聊聊目的" class="headerlink" title="聊聊目的"></a>聊聊目的</h3><p>一直以來都是靠 <a target="_blank" rel="noopener" href="https://www.notion.so/zh-tw/product">Notion</a> 來做筆記，雖然功能強大，可是沒辦法完全自由化。所以決定來架個 Blog，想練練自己的能力。一開始是想使用 <code>React.js</code>+<code>NEXT.js</code>，但對目前的我來說有點麻煩，會花點時間，所以就先暫時放棄。這篇將從 <strong>Github &gt; Netlify &gt; Porkbun</strong> 的簡化教學，會著重在比較麻煩的部分。</p>
+<p>有關 HEXO 的使用方式可以到官方 <a target="_blank" rel="noopener" href="https://hexo.io/docs/">Documentation</a>。CLI 的部分，稍微懂一下 Git 的基礎知識和操作方式即可。不熟悉的話，可以看一下<a target="_blank" rel="noopener" href="https://backlog.com/git-tutorial/tw/">連猴子都懂的 Git</a>。如果想要深入一點，可以去 Google 一下 <strong>Git Pro 2.0</strong> 。</p>
+<hr>
+<h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a><a target="_blank" rel="noopener" href="https://github.com/">Github</a></h3><p>HEXO 建置完成後，你可以選擇上傳到 Github 或者 Netlify。最好的方式，就是先上傳 Github 再用 Netlify 來連結你的 repository。因為在 Github 上 Domain 的設定，會因為你每一次 upload 就要重新設定一次。</p>
+<ol>
+<li>沒有帳號的，先創立一個帳號。</li>
+<li>創立一個 new Repository 名稱是 <strong>Github 帳號.github.io</strong> 。</li>
+<li>到 HEXO 中的 <strong>_confing.yml</strong> 找到 deploy。 沒有的話就在最後的 line 自行添加。</li>
+</ol>
+<pre><code>deploy:
+  type: git
+  repository: 放入剛剛創立的Repository網址
+  branch: main (目前預設是 main，在以前會是 master)
+</code></pre>
+<ol start="4">
+<li>在資料夾的目錄下，輸入 <code>$ hexo d</code> 進行 deploy 到 github 上。</li>
+<li>到這裡便已經完成了 Github page 的部分。</li>
+<li>如果沒有想要使用自己專屬的 Domain，那麼做到這裡即可。</li>
+</ol>
+<hr>
+<h3 id="Netlify"><a href="#Netlify" class="headerlink" title="Netlify"></a><a target="_blank" rel="noopener" href="https://www.netlify.com/">Netlify</a></h3><p>Netlify 是架設靜態網站的平台，個人是覺得十分好用。你如果是做前端的，也可以把作品直接放在這邊，他會給你官方預設的 Domain，便可以使用該 Domain 去連結你的網站。</p>
+<blockquote>
+<p>為了解決每 git push 一次，就要重新設定 Domain，所以我用 Netlify。假設你有其他託管的 server，也可以使用。Domain 的設定只設定一次，之後就算再怎樣發佈，也不會影響。</p>
+</blockquote>
+<p>找到 <strong>Import new page</strong>，之後連結你的 Github 會出現下面的畫面<br><img src="https://i.imgur.com/adOiC8B.png" alt="NetlifyImg"><br>直接按 <strong>Deploy site</strong> 即可，不用多做設定，網路上很多都是舊版已失效了。舊版(master)會需要設定指令給 Netlify，新版(main)不需要做這些。如果跟著舊版做，網頁會跑不出來。<br><img src="https://i.imgur.com/UN8nMH1.png" alt="DomainSetting"><br><img src="https://i.imgur.com/kLPs9CV.png" alt="custom"><br>之後來到 <strong>Domain management</strong> 設定，請把你申請好的 Domain 貼上去讓他確認。<br>確認完他會給你四組類似 <code>dns1.p04.nsnoe.net</code> 這樣的 <strong>NameServers</strong>。把這四個複製下來，如果你不是像我一樣使用 <strong>Porkbun</strong> 的話，去你買 Domain 的網站，找到有可以設定 NS 的頁面貼上去即可。</p>
+<p>由於 DNS 設定通常會是抓一天比較保守，簡單來說就是要先跑過全球的 server 來設定你這個 Domain 會連到你指定的頁面。所以設定好就等吧，不用急。</p>
+<hr>
+<h3 id="Porkbun"><a href="#Porkbun" class="headerlink" title="Porkbun"></a><a target="_blank" rel="noopener" href="https://porkbun.com/">Porkbun</a></h3><p>稍微介紹一下 <strong>Porkbun</strong>，看起來很像是個詐騙網站，但企業背景是很安全的，這點倒是不用太擔心你買的 Domain 被抄走。加上還附贈其他供應商需要額外加購的服務，我個人是覺得很超值。如果你對這供應商很擔憂，可以選擇 <strong>Google, Godaddy…</strong> 之類的。當然你也可以使用比價網 <a target="_blank" rel="noopener" href="https://www.domcomp.com/">Domcomp</a>，它會告訴你目前你指定的 Domain 哪裡最便宜。</p>
+<p>接下來就是如何在 Porkbun 設定 Netlify 給你的四組 NS。<br>一樣找到 Domain management 的頁面。並點開你要使用的網域旁的 Details。展開的表格中找到 <strong>Authoritative Nameservers</strong>，把你那四組都丟進去，記得把裡面預設的 NS 都清空再貼近去。這裡就不附圖片了，有點懶。</p>
+<p>他會給你一些警告，但不用理他，SAVE and DONE!</p>
+<hr>
+<p><strong>Reference:</strong> <a target="_blank" rel="noopener" href="https://answers.netlify.com/t/support-guide-finding-the-ip-addresses-for-netlifys-nameservers/8366">Netlify Support</a>, <a target="_blank" rel="noopener" href="https://docs.netlify.com/domains-https/netlify-dns/delegate-to-netlify/?_ga=2.112457668.1371588080.1664634257-1927401879.1664634257">Netlify Docs</a>, <a target="_blank" rel="noopener" href="https://pakstech.com/blog/publish-netlify/">Pakstech</a></p>
+
+    </div>
+
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            
+            <p class="tags">
+                
+                Tagged with <a href="/tags/Hexo/" class="tag">#Hexo</a><a href="/tags/Netlify/" class="tag">#Netlify</a><a href="/tags/Porkbun/" class="tag">#Porkbun</a><a href="/tags/Github/" class="tag">#Github</a>
+                .
+            </p>
+            
+            <p>This post is written by LEESO, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+  <div class="inner">
+    <div class="links">
+      
+    </div>
+    <span
+      >&copy; 2022 LEESO
+    </span>
+     
+  </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        <script src="/js/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        
+        
+    </body>
+</html>

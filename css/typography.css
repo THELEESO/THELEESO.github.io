@@ -10,7 +10,8 @@ hr {
 }
 
 img {
-  width: 100%;
+  width: 80%;
+  padding: 10px 0px;
 }
 
 ::marker {
@@ -18,7 +19,7 @@ img {
 }
 
 blockquote {
-  border-left: 4px solid var(--white-2);
+  border-left: 3px solid rgb(9, 91, 135);
 }
 
 /* pre,
@@ -33,10 +34,19 @@ pre {
 code {
   font-size: 1rem;
   /* background-color: var(--white-1); */
-  background-color: rgb(106, 106, 106);
+  background-color: rgb(9, 91, 135);
   color: rgb(255, 255, 255);
   padding: 2px 4px;
   border-radius: 4px;
+}
+
+blockquote p {
+  color: rgb(9, 91, 135);
+  font-size: 15px;
+}
+
+strong {
+  color: rgb(9, 91, 135);
 }
 
 @media screen and (max-width: 440px) {
