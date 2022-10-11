@@ -19,7 +19,7 @@ img {
 }
 
 blockquote {
-  border-left: 3px solid rgb(9, 91, 135);
+  border-left: 3px solid #008874;
 }
 
 /* pre,
@@ -34,20 +34,22 @@ pre {
 code {
   font-size: 1rem;
   /* background-color: var(--white-1); */
-  background-color: rgb(9, 91, 135);
+  background-color: rgb(62, 62, 62);
   color: rgb(255, 255, 255);
   padding: 2px 4px;
   border-radius: 4px;
 }
 
 blockquote p {
-  color: rgb(9, 91, 135);
-  font-size: 15px;
+  color: #008874;
+  font-size: 0.9rem;
+  /* background-color: #2a2c2d; */
+  /* border-radius: 4px; */
 }
 
-strong {
+/* strong {
   color: rgb(9, 91, 135);
-}
+} */
 
 @media screen and (max-width: 440px) {
   code {
