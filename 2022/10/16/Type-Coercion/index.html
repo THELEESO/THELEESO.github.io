@@ -10,7 +10,7 @@
     />
     <meta name="color-scheme" content="light dark" />
     
-    <title>Archives - LEESO&#39;s World</title>
+    <title>Type Coercion - LEESO&#39;s World</title>
      <link rel="shortcut icon" href="/img/favicon.png">   
 <link rel="stylesheet" href="/css/var.css">
  
@@ -36,9 +36,7 @@
 <link rel="stylesheet" href="/css/toc.css">
      
 <link rel="stylesheet" href="/css/post.css">
-   
-<link rel="stylesheet" href="/css/archive.css">
-   
+    
     
     
     <link
@@ -90,72 +88,71 @@
         </div>
     </div>
 </nav>
-        <div class="container">
+        
+<article class="post">
     <div class="meta">
-        <div class="type">
-            
-            
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/JavaScript/">JavaScript</a>
+        
         </div>
+        
 
-        <h2 class="title">Archives</h2>
+        
+        <div class="date" id="date">
+            <span>October</span>
+            <span>16,</span>
+            <span>2022</span>
+        </div>
+        
+
+        <h2 class="title">Type Coercion</h2>
     </div>
 
     <div class="divider"></div>
 
-    <div class="post-list archives">
-        
-        <article class="post-list-item">
-            <a href="/2022/10/16/Type-Coercion/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>JavaScript</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        Type Coercion
-                    </div>
-                    
-                    <div class="time">
-                        <span>October</span>
-                        <span>&nbsp;16,&nbsp;</span>
-                        <span>2022</span>
-                    </div>
-                </div>
-            </a>
-        </article>
-        
-        <article class="post-list-item">
-            <a href="/2022/10/08/Build-a-Blog-With-Hexo/">
-                
-                <div class="content">
-                    
-                    <div class="categories text-uppercase">
-                    
-                        <span>Technique</span>
-                    
-                    </div>
-                    
-                    <div class="title">
-                        Building a Blog With Hexo
-                    </div>
-                    
-                    <div class="time">
-                        <span>October</span>
-                        <span>&nbsp;8,&nbsp;</span>
-                        <span>2022</span>
-                    </div>
-                </div>
-            </a>
-        </article>
-        
+    <div class="content">
+        <h3 id="Type-Coercion-強制型別轉換"><a href="#Type-Coercion-強制型別轉換" class="headerlink" title="Type Coercion 強制型別轉換"></a>Type Coercion 強制型別轉換</h3><p>在 JS 中，使用運算子或者 methos 都可以強制轉換其型別(type)。</p>
+<pre><code class="js">&#39;10&#39; + 10 = &#39;1010&#39;
+&#39;10&#39; - 10 = 0
+&#39;10&#39; - 10 + &#39;Hi&#39; = &#39;0Hi&#39;
+&#39;10&#39; - 10 - &#39;Hi&#39; = NaN
+</code></pre>
+<p>我們可以看到規則性：</p>
+<p><strong>1. 不管是原始型別是 String 還是 Number，只要再與 String 相加就會變成 String。</strong><br><strong>2. String(number) 與 Number 相減，就會自動轉換成數字。</strong><br><strong>3. 發生無法相減的情況下，就會產生 NaN(Not a Number)。</strong></p>
+<h4 id="Math-methods"><a href="#Math-methods" class="headerlink" title="Math.methods()"></a>Math.methods()</h4><p>使用 Math 相關 methods 都會產生 Type Coercion。</p>
+<pre><code class="js">Math.abs(&#39;43&#39;) = 43
+Math.floor(&#39;-43.123&#39;) = -43
+</code></pre>
+<h4 id="toFixed"><a href="#toFixed" class="headerlink" title="toFixed()"></a>toFixed()</h4><p>有時候我們也會用 toFixed()來處理小數點，但需要明確知道他是會 return String。</p>
+<pre><code class="js">10.123.toFixed(2) = `10.12`
+</code></pre>
+<h4 id="快速轉換"><a href="#快速轉換" class="headerlink" title="快速轉換"></a>快速轉換</h4><p>除了一些 String 轉 Number 的 Methods(Number(), parseInt())，還有一種很簡單的方式就是使用 + 運算子。</p>
+<pre><code class="js">+&#39;123&#39; = 123
+</code></pre>
+<p>其實這裡可以把它想像成，我們是要<strong>告訴 JavaScript 這是一個正數</strong>，所以強制在前面多了一個 + 。<br>所以當你使用 - 就會變成負數了！很簡單吧。</p>
+<p><strong>要注意的是，如果是要使用相加，必須在兩個運算子之間空一格。</strong><br>相減的話，那就不需要 + 這個運算子囉。</p>
+<pre><code class="js">100+ +&#39;123&#39; = 223
+</code></pre>
+<p>這個方式，可以讓你的程式碼看起來更乾淨，但如果不懂他的運作原理，反而會看不懂程式碼。<br>所以在表現 clean code 的同時，也要注重易讀性，有機會再來寫一下 clean code 的原則。</p>
+
+    </div>
+
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            
+            <p>This post is written by LEESO, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
     </div>
 
     
-</div>
+        
+        
+    
+</article>
+
         <footer>
   <div class="inner">
     <div class="links">

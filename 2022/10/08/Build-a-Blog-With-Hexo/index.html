@@ -114,9 +114,7 @@
 
     <div class="content">
         <h3 id="聊聊目的"><a href="#聊聊目的" class="headerlink" title="聊聊目的"></a>聊聊目的</h3><p>一直以來都是靠 <a target="_blank" rel="noopener" href="https://www.notion.so/zh-tw/product">Notion</a> 來做筆記，雖然功能強大，可是沒辦法完全自由化。所以決定來架個 Blog，想練練自己的能力。一開始是想使用 <code>React.js</code>+<code>NEXT.js</code>，但對目前的我來說有點麻煩，會花點時間，所以就先暫時放棄。</p>
-<blockquote>
 <p>這篇將從 <em>Github + Netlify + Porkbun</em> 的簡化教學，會著重在比較麻煩的部分。</p>
-</blockquote>
 <p>有關 HEXO 的使用方式可以到官方 <a target="_blank" rel="noopener" href="https://hexo.io/docs/">Documentation</a>。CLI 的部分，稍微懂一下 Git 的基礎知識和操作方式即可。不熟悉的話，可以看一下<a target="_blank" rel="noopener" href="https://backlog.com/git-tutorial/tw/">連猴子都懂的 Git</a>。如果想要深入一點，可以去 Google 一下 <strong>Git Pro 2.0</strong> 。</p>
 <hr>
 <h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a><a target="_blank" rel="noopener" href="https://github.com/">Github</a></h3><p>HEXO 建置完成後，你可以選擇上傳到 Github 或者 Netlify。最好的方式，就是先上傳 Github 再用 Netlify 來連結你的 repository。因為在 Github 上 Domain 的設定，會因為你每一次 upload 就要重新設定一次。</p>
@@ -137,9 +135,7 @@
 </ol>
 <hr>
 <h3 id="Netlify"><a href="#Netlify" class="headerlink" title="Netlify"></a><a target="_blank" rel="noopener" href="https://www.netlify.com/">Netlify</a></h3><p>Netlify 是架設靜態網站的平台，個人是覺得十分好用。你如果是做前端的，也可以把作品直接放在這邊，他會給你官方預設的 Domain，便可以使用該 Domain 去連結你的網站。</p>
-<blockquote>
 <p>為了解決每 git push 一次，就要重新設定 Domain，所以我用 Netlify。<br>假設你有其他託管的 server，也可以使用。Domain 的設定只設定一次，之後就算再怎樣發佈，也不會影響。</p>
-</blockquote>
 <p>找到 <strong>Import new page</strong>，之後連結你的 Github 會出現下面的畫面<br><img src="https://i.imgur.com/adOiC8B.png" alt="NetlifyImg"><br>直接按 <strong>Deploy site</strong> 即可，不用多做設定，網路上很多都是舊版已失效了。舊版(master)會需要設定指令給 Netlify，新版(main)不需要做這些。如果跟著舊版做，網頁會跑不出來。<br><img src="https://i.imgur.com/UN8nMH1.png" alt="DomainSetting"><br><img src="https://i.imgur.com/kLPs9CV.png" alt="custom"><br>之後來到 <strong>Domain management</strong> 設定，請把你申請好的 Domain 貼上去讓他確認。<br>確認完他會給你四組類似 <code>dns1.p04.nsnoe.net</code> 這樣的 <strong>NameServers</strong>。把這四個複製下來，如果你不是像我一樣使用 <strong>Porkbun</strong> 的話，去你買 Domain 的網站，找到有可以設定 NS 的頁面貼上去即可。</p>
 <p>由於 DNS 設定通常會是抓一天比較保守，簡單來說就是要先跑過全球的 server 來設定你這個 Domain 會連到你指定的頁面。所以設定好就等吧，不用急。</p>
 <hr>
