@@ -10,7 +10,7 @@
     />
     <meta name="color-scheme" content="light dark" />
     
-    <title>Type Coercion - LEESO&#39;s World</title>
+    <title>Basic - Array, Object - LEESO&#39;s World</title>
      <link rel="shortcut icon" href="/img/favicon.png">   
 <link rel="stylesheet" href="/css/var.css">
  
@@ -102,40 +102,84 @@
         
         <div class="date" id="date">
             <span>October</span>
-            <span>16,</span>
+            <span>29,</span>
             <span>2022</span>
         </div>
         
 
-        <h2 class="title">Type Coercion</h2>
+        <h2 class="title">Basic - Array, Object</h2>
     </div>
 
     <div class="divider"></div>
 
     <div class="content">
-        <h3 id="Type-Coercion-強制型別轉換"><a href="#Type-Coercion-強制型別轉換" class="headerlink" title="Type Coercion 強制型別轉換"></a>Type Coercion 強制型別轉換</h3><p>在 JS 中，使用運算子或者 methos 都可以強制轉換其型別(type)。</p>
-<pre><code class="js">&#39;10&#39; + 10 = &#39;1010&#39;
-&#39;10&#39; - 10 = 0
-&#39;10&#39; - 10 + &#39;Hi&#39; = &#39;0Hi&#39;
-&#39;10&#39; - 10 - &#39;Hi&#39; = NaN
+        <h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><p>While we use <code>const</code> to declare the Array, we still can add&#x2F;remove the items inside.</p>
+<pre><code class="js">const fruits = [&quot;Apple&quot;, &quot;Banana&quot;, &quot;Grape&quot;];
+
+fruits.push(&quot;Orange&quot;);
+// output: [&quot;Apple&quot;, &quot;Banana&quot;, &quot;Grape&quot;, &quot;Orange&quot;];
+
+fruits.split(-1);
+// output: [&quot;Apple&quot;, &quot;Banana&quot;, &quot;Grape&quot;];
 </code></pre>
-<p>我們可以看到規則性：</p>
-<p><strong>1. 不管是原始型別是 String 還是 Number，只要再與 String 相加就會變成 String。</strong><br><strong>2. String(number) 與 Number 相減，就會自動轉換成數字。</strong><br><strong>3. 發生無法相減的情況下，就會產生 NaN(Not a Number)。</strong></p>
-<h4 id="Math-methods"><a href="#Math-methods" class="headerlink" title="Math.methods()"></a>Math.methods()</h4><p>使用 Math 相關 methods 都會產生 Type Coercion。</p>
-<pre><code class="js">Math.abs(&#39;43&#39;) = 43
-Math.floor(&#39;-43.123&#39;) = -43
+<p>Because the Array’s value store in <strong>Heap</strong> memory, we can change it <strong>with any methods</strong>.<br>But, we cannot <strong>Reassign</strong> it!</p>
+<pre><code class="js">fruits = [&quot;Orange&quot;];
+// TypeError: Assignment to constant variable.
 </code></pre>
-<h4 id="toFixed"><a href="#toFixed" class="headerlink" title="toFixed()"></a>toFixed()</h4><p>有時候我們也會用 toFixed()來處理小數點，但需要明確知道他是會 return String。</p>
-<pre><code class="js">10.123.toFixed(2) = &#39;10.12&#39;
+<p>Use <code>[index]</code> to access items of Array.</p>
+<pre><code class="js">fruits[0];
+// output: Apple
 </code></pre>
-<h4 id="快速轉換"><a href="#快速轉換" class="headerlink" title="快速轉換"></a>快速轉換</h4><p>除了一些 String 轉 Number 的 Methods：Number(), parseInt()，還有一種很簡單的方式就是使用 + 運算子。</p>
-<pre><code class="js">+&#39;123&#39; = 123
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>Object works the same with it. The value store in Heap.</p>
+<pre><code class="js">const person = &#123; name: &quot;Leeso&quot;, age: 30 &#125;;
+
+person.job = &quot;Dev&quot;;
+// output: &#123;name: &#39;Leeso&#39;, age: 30, job: &#39;Dev&#39;&#125;
+
+person = &#123; name: &quot;Leeso&quot;, age: 30, job: &quot;Dev&quot; &#125;;
+// TypeError: Assignment to constant variable.
 </code></pre>
-<p>其實這裡可以把它想像成，我們是要告訴 <strong>JavaScript 這是一個正數</strong>，所以強制在前面多了一個 + 。<br>所以當你使用 - 就會變成負數了！很簡單吧。</p>
-<p><strong>要注意的是，如果是要使用相加，必須在兩個運算子之間空一格。</strong><br>相減的話，那就不需要 + 這個運算子囉。</p>
-<pre><code class="js">100 + +&#39;123&#39; = 223
+<p>Use <code>.</code> or <code>[expression]</code> to <strong>access&#x2F;create</strong> properties of Object.</p>
+<pre><code class="js">const person = &#123; name: &quot;Leeso&quot;, age: 30, job: &quot;Dev&quot; &#125;;
+
+person.name;
+// output: &#39;Leeso&#39;
+
+person[&quot;a&quot; + &quot;g&quot; + &quot;e&quot;];
+// output: 30
+
+const str = &quot;job&quot;;
+person[str];
+// output: Dev
+
+person[&quot;twitter&quot;] = &quot;@lesso&quot;;
+person.home = &quot;Taipei&quot;;
+// output: &#123; name: &quot;Leeso&quot;, age: 30, job: &quot;Dev&quot;, twitter: &#39;@leeso&#39;, home:&#39;Taipei&#39;&#125;;
 </code></pre>
-<p>這個方式，可以讓你的程式碼看起來更乾淨，但如果不懂他的運作原理，反而會看不懂程式碼。</p>
+<p><code>this</code> keyword in object, always point to who calling it.</p>
+<pre><code class="js">const leeso = &#123;
+  name: &quot;leeso&quot;,
+  age: 30,
+  sayhi() &#123;
+    console.log(`Hi, I am $&#123;this.name&#125;, $&#123;this.age&#125; years old.`);
+  &#125;,
+&#125;;
+
+leeso.sayhi();
+// output: Hi, I am leeso, 30 years old.
+</code></pre>
+<p>Use <strong>this.property</strong> to create new property.</p>
+<pre><code class="js">const leeso = &#123;
+  name: &quot;leeso&quot;,
+  age: 30,
+  birthYear() &#123;
+    this.birthYear = new Date().getFullYear() - this.age;
+  &#125;,
+&#125;;
+
+leeso.birthYear();
+// output: &#123;name: &#39;leeso&#39;, age: 30, birthYear: 1992&#125;
+</code></pre>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/">MDN</a></p>
 
     </div>
@@ -146,7 +190,7 @@ Math.floor(&#39;-43.123&#39;) = -43
             
             <p class="tags">
                 
-                Tagged with <a href="/tags/Typeof/" class="tag">#Typeof</a>
+                Tagged with <a href="/tags/Array/" class="tag">#Array</a><a href="/tags/Object/" class="tag">#Object</a>
                 .
             </p>
             

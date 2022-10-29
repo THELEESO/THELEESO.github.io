@@ -34,7 +34,7 @@ pre {
 code {
   font-size: 1rem;
   /* background-color: var(--white-1); */
-  background-color: #b92828;
+  background-color: #ff75b5;
   color: rgb(255, 255, 255);
   padding: 2px 4px;
   border-radius: 4px;
@@ -48,7 +48,7 @@ blockquote p {
 }
 
 strong {
-  color: #b92828;
+  color: #bc296e;
 }
 
 @media screen and (max-width: 440px) {
